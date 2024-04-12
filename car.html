@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vacay Planner - Car Rental Booking</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="car.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Vacay Planner</div>
+            <div class="logout">
+                <a href="#" onclick="logout()">Logout</a>
+            </div>
+            <script src="login.js"></script>
+        </div>
+    </header>
+
+    <div class="background-image">
+        <div class="container">
+            <h1>Search Rental Cars</h1>
+            <div class="form-group">
+                <label for="pickupLocation">Pickup Location:</label>
+                <input type="text" id="pickupLocation" name="pickupLocation" placeholder="Enter pickup location"><br>
+                
+                <label for="dropoffLocation">Drop-off Location:</label>
+                <input type="text" id="dropoffLocation" name="dropoffLocation" placeholder="Enter drop-off location"><br>
+                
+                <label for="pickupDate">Pickup Date:</label>
+                <input type="date" id="pickupDate" name="pickupDate"><br>
+
+                <label for="returnDate">Return Date:</label>
+                <input type="date" id="returnDate" name="returnDate"><br>
+                
+                <button onclick="searchCars()">Search</button>
+            </div>
+            
+            <div id="carResults" class="results">
+                <!-- Car search results will be displayed here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="car_rental.js"></script>
+</body>
+</html>

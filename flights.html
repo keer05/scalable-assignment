@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vacay Planner - Flight Booking</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="flights.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Vacay Planner</div>
+            <div class="logout">
+                <a href="#" onclick="logout()">Logout</a>
+            </div>
+            <script src="login.js"></script>
+        </div>
+    </header>
+
+    <div class="background-image">
+        <div class="container">
+            <h1>Search Flights</h1>
+            <div class="form-group">
+                <label for="departureCity">Departure City:</label>
+                <input type="text" id="departureCity" name="departureCity" placeholder="Enter departure city"><br>
+                
+                <label for="destinationCity">Destination City:</label>
+                <input type="text" id="destinationCity" name="destinationCity" placeholder="Enter destination city"><br>
+                
+                <label for="departureDate">Departure Date:</label>
+                <input type="date" id="departureDate" name="departureDate"><br>
+                
+                <button onclick="searchFlights()">Search</button>
+            </div>
+            
+            <div id="flightResults" class="results">
+                <!-- Flight search results will be displayed here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="flights.js"></script>
+</body>
+</html>
