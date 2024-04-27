@@ -1,12 +1,11 @@
 from flask import Flask, request, jsonify
 import jwt
 import sqlite3
-from functools import wraps  # Import wraps decorator
+from functools import wraps
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
-
+CORS(app, resources={r"/*": {"origins": "*"}})  # Allow requests from any origin
 
 # Initialize SQLite database
 def init_db():
@@ -41,7 +40,7 @@ add_sample_users()
 
 # JWT token required decorator
 def token_required(f):
-    @wraps(f)  # Use wraps decorator
+    @wraps(f)  
     def decorated(*args, **kwargs):
         token = request.headers.get('Authorization')
 
@@ -76,7 +75,7 @@ def login():
     if not user:
         return jsonify({'message': 'Invalid credentials'}), 401
 
-    token = jwt.encode({'username': username}, 'your_secret_key', algorithm='HS256')
+    token = jwt.encode({'username': username}, '8e561a07023b87d53c1da0eee24b20523f8e262e5109b7614aa93697ef5d39d5', algorithm='HS256')
 
     return jsonify({'token': token})
 
@@ -87,5 +86,5 @@ def logout():
     # In a real-world scenario, you might want to implement token invalidation logic
     return jsonify({'message': 'Logged out successfully'})
 
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=5000)
