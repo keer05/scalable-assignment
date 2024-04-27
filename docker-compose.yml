@@ -5,8 +5,34 @@ services:
       - "5000:5000"  
 
   frontend:
-    image: frontend-image:latest
+    build:
+      context: .
+      dockerfile: Dockerfile-frontend
     ports:
       - "80:80"
     depends_on:
       - backend
+      
+  transaction-service:
+    image: hemantgairola/transaction-app:latest
+#    build:
+#      context: ./services/transaction_service
+    ports:
+      - "8000:8000"
+    depends_on:
+      - rabbitmq
+
+  flight-service:
+    image: hemantgairola/flight-app:latest
+#    build:
+#      context: ./services/app
+    ports:
+      - "8001:8000"
+    depends_on:
+      - rabbitmq
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
