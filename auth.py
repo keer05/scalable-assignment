@@ -84,7 +84,8 @@ def login():
 @token_required
 def logout():
     # In a real-world scenario, you might want to implement token invalidation logic
-    return jsonify({'message': 'Logged out successfully'})
+    response = {'message': 'Logged out successfully'}
+    print(response)  # Print the API response
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)
